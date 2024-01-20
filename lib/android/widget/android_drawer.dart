@@ -15,7 +15,7 @@ class android_drawer extends StatelessWidget {
     return Drawer(
       backgroundColor: Colors.black,
       child: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
             const SizedBox(
@@ -79,37 +79,37 @@ class android_drawer extends StatelessWidget {
               children: [
                 IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.facebook,
                       color: Colors.white,
                     )),
                 IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.facebook,
                       color: Colors.white,
                     )),
                 IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.facebook,
                       color: Colors.white,
                     )),
                 IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.facebook,
                       color: Colors.white,
                     )),
                 IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.facebook,
                       color: Colors.white,
                     )),
                 IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.facebook,
                       color: Colors.white,
                     )),

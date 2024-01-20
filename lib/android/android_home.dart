@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-
+import 'package:carousel_slider/carousel_slider.dart';
 import 'widget/android_drawer.dart';
 import 'widget/divider.dart';
 import 'widget/lsit_card.dart';
 
 class AndroidHomePage extends StatelessWidget {
   AndroidHomePage({super.key});
+  CarouselController buttonCarouselController = CarouselController();
   final List<String> _drawwerHEader = [
     'Music',
     'Videos',
@@ -155,7 +156,7 @@ class AndroidHomePage extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                   color: Colors.black, borderRadius: BorderRadius.circular(8)),
-              child: Text(
+              child: const Text(
                 'VIEW ALL RELEASE',
                 style: TextStyle(
                     color: Colors.white,
@@ -166,14 +167,181 @@ class AndroidHomePage extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            Container(
+            SizedBox(
               height: size.height * 0.6,
               width: size.width,
-              decoration: BoxDecoration(color: Colors.green),
+              child: CarouselSlider(
+                items: _images
+                    .map((image) => Container(
+                          height: size.height * 0.6,
+                          width: size.width,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(image: AssetImage(image)),
+                          ),
+                          child: Center(
+                            child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.play_arrow,
+                                  color: Colors.white,
+                                  size: 50,
+                                )),
+                          ),
+                        ))
+                    .toList(),
+                carouselController: buttonCarouselController,
+                options: CarouselOptions(
+                  autoPlay: true,
+                  height: size.height * 0.6,
+                  enlargeCenterPage: true,
+                  viewportFraction: 1.0,
+                  aspectRatio: 1,
+                  initialPage: 2,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  color: Colors.black, borderRadius: BorderRadius.circular(8)),
+              child: const Text(
+                'ARTISTS',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20),
+              ),
             ),
             const SizedBox(
               height: 15,
             ),
+
+            //artis
+            SizedBox(
+              height: size.height * 0.95,
+              child: ListView.builder(
+                  itemCount: _images.length,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (_, index) => Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20)
+                            .copyWith(bottom: 15),
+                        child: ListCard(
+                          imagePath: _images[index],
+                          name: _names[index],
+                        ),
+                      )),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Container(
+              padding: const EdgeInsets.all(12),
+              height: size.height * 0.95,
+              width: size.width,
+              color: Colors.black,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: size.height * 0.02,
+                  ),
+                  const Text(
+                    'STAY UPDATED',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
+                  SizedBox(
+                    height: size.height * 0.02,
+                  ),
+                  const Text(
+                    'THE LATEST UPDATES STRAIGHT TO YOUR INBOX',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w100,
+                        fontSize: 19),
+                  ),
+                  SizedBox(
+                    height: size.height * 0.02,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                        hintText: 'Enter your email address',
+                        hintStyle: TextStyle(color: Colors.grey)),
+                  ),
+                  SizedBox(
+                    height: size.height * 0.02,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8)),
+                    child: const Text(
+                      'SUBSCRIBE',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20),
+                    ),
+                  ),
+                  SizedBox(
+                    height: size.height * 0.08,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.facebook,
+                            color: Colors.white,
+                          )),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.facebook,
+                            color: Colors.white,
+                          )),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.facebook,
+                            color: Colors.white,
+                          )),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.facebook,
+                            color: Colors.white,
+                          )),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.facebook,
+                            color: Colors.white,
+                          )),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.facebook,
+                            color: Colors.white,
+                          )),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  const Divider(
+                    color: Colors.white,
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
